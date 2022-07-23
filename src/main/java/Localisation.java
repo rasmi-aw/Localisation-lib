@@ -21,10 +21,11 @@ public class Localisation {
      */
     public static List<Country> getAllCountriesStatesAndCities() throws Exception {
         //
-        Gson gson = new Gson();
         String json = getJson(Endpoint.COUNTRY_CITY_STATE);
         if (json == null)
             throw new Exception("Couldn't Fetch data, check your internet connection.");
+        //
+        Gson gson = new Gson();
         Country[] countries = gson.fromJson(json, Country[].class);
         return Arrays.asList(countries);
     }
@@ -34,7 +35,6 @@ public class Localisation {
      * Excecutes an http request
      */
     private static final String getJson(String url) throws URISyntaxException, IOException, InterruptedException {
-
         //
         HttpRequest request = HttpRequest
                 .newBuilder()

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.blacksoft</groupId>
-    <artifactId>Localisation</artifactId>
+    <artifactId>localisation</artifactId>
     <version>1.0</version>
     <name>blacksoft-localisation</name>
     <description>A JAVA LIBRARY TO ADD LOCALISATION TO JAVA APPLIACATIONS</description>
@@ -34,65 +34,66 @@
             <version>2.9.0</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.apache.maven.plugins</groupId>-->
-<!--            <artifactId>maven-assembly-plugin</artifactId>-->
-<!--            <version>3.3.0</version>-->
-<!--            <type>maven-plugin</type>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>3.3.0</version>
+            <type>maven-plugin</type>
+            <scope>provided</scope>
+        </dependency>
 
     </dependencies>
 
-<!--    <build>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>3.6.0</version>-->
-<!--                <configuration>-->
-<!--                    <source>1.8</source>-->
-<!--                    <target>1.8</target>-->
-<!--                    <annotationProcessorPaths>-->
-<!--                        <path>-->
-<!--                            <groupId>org.projectlombok</groupId>-->
-<!--                            <artifactId>lombok</artifactId>-->
-<!--                            <version>1.18.24</version>-->
-<!--                        </path>-->
-<!--                    </annotationProcessorPaths>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.0</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.24</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
 
-<!--            &lt;!&ndash;            &ndash;&gt;-->
-<!--            <plugin>-->
-<!--                <artifactId>maven-assembly-plugin</artifactId>-->
-<!--                <version>3.3.0</version>-->
-<!--                <configuration>-->
-<!--                    <appendAssemblyId>false</appendAssemblyId> &lt;!&ndash; nicer looking jar name &ndash;&gt;-->
-<!--                    <archive>-->
-<!--&lt;!&ndash;                        <manifest>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <addClasspath>true</addClasspath>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <mainClass>com.blah.blah.YourMainClass</mainClass>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </manifest>&ndash;&gt;-->
-<!--&lt;!&ndash;                        <descriptors>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <descriptor>src/main/resources/excluded_dependencies.xml</descriptor>&ndash;&gt;-->
-<!--&lt;!&ndash;                        </descriptors>&ndash;&gt;-->
-<!--                    </archive>-->
-<!--                    <descriptorRefs>-->
-<!--                        <descriptorRef>jar-with-dependencies</descriptorRef>-->
-<!--                    </descriptorRefs>-->
-<!--                </configuration>-->
+            <!--            -->
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <configuration>
+                    <appendAssemblyId>false</appendAssemblyId> <!-- nicer looking jar name -->
+                    <archive>
+                        <!--                        <manifest>-->
+                        <!--                            <addClasspath>true</addClasspath>-->
+                        <!--                            <mainClass>com.blah.blah.YourMainClass</mainClass>-->
+                        <!--                        </manifest>-->
+                        <!--                        <descriptors>-->
+                        <!--                            <descriptor>src/main/resources/excluded_dependencies.xml</descriptor>-->
+                        <!--                        </descriptors>-->
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
 
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>make-assembly</id>-->
-<!--                        <phase>package</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>single</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
