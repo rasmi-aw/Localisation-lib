@@ -1,53 +1,50 @@
+import com.google.gson.Gson;
 import model.Country;
-import okhttp3.OkHttpClient;
-import retrofit2.Call;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-import service.GeographyService;
+import service.Endpoint;
 
 import java.io.IOException;
-import java.util.Date;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Arrays;
 import java.util.List;
 
 /**
  * @author AbdelWadoud Rasmi
  */
 public class Localisation {
-    private static final String BASE_URL = "https://raw.githubusercontent.com/rasmi-aw/localisation/master/";
-
 
     /**
      * Returns the list of all countries along with their states and cities
      */
-    public static List<Country> getAllCountriesStatesAndCities() throws IOException {
-
-        GeographyService service = buildRequest(BASE_URL).create(GeographyService.class);
-        Call<List<Country>> call = service.getAllCountriesStatesAndCities();
+    public static List<Country> getAllCountriesStatesAndCities() throws Exception {
         //
-        System.out.println(new Date() + " --Blacksoft.Localisation-- Started fetch_countries request");
-        Response<List<Country>> response = call.execute();
-        if (response.body() != null)
-            System.out.println(new Date() + " --Blacksoft.Localisation-- Finished fetching all number countries".replace("number", String.valueOf(response.body().size())));
-        else
-            System.err.println(new Date() + " --Blacksoft.Localisation-- An Error has occurred while fetching countries");
-        return response.body();
+        Gson gson = new Gson();
+        String json = getJson(Endpoint.COUNTRY_CITY_STATE);
+        if (json == null)
+            throw new Exception("Couldn't Fetch data, check your internet connection.");
+        Country[] countries = gson.fromJson(json, Country[].class);
+        return Arrays.asList(countries);
     }
 
 
     /**
      * Excecutes an http request
      */
-    private static final Retrofit buildRequest(String url) {
+    private static final String getJson(String url) throws URISyntaxException, IOException, InterruptedException {
 
         //
-        OkHttpClient.Builder okHttpClient = new OkHttpClient.Builder();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .client(okHttpClient.build()).build();
+        HttpRequest request = HttpRequest
+                .newBuilder()
+                .uri(new URI(url))
+                .GET()
+                .build();
+        HttpClient client = HttpClient.newHttpClient();
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
-        return retrofit;
+        return response.body();
     }
 
 }
