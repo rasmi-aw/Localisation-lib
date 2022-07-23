@@ -15,6 +15,7 @@ import java.util.List;
  * @author AbdelWadoud Rasmi
  */
 public class Localisation {
+    private static final String TAG = "Blacksoft->Localisation";
 
     /**
      * Returns the list of all countries along with their states and cities
