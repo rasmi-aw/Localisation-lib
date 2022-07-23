@@ -1,4 +1,4 @@
-package model;
+package com.blacksoft.localisation.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,10 +7,11 @@ import lombok.Setter;
 
 /**
  * @author AbdelWadoud Rasmi
+ * <p>
  */
 @AllArgsConstructor
 @NoArgsConstructor
-public class City {
+public class State {
 
     @Getter
     @Setter
@@ -22,9 +23,23 @@ public class City {
 
     @Getter
     @Setter
+    private String state_code;
+
+    @Getter
+    @Setter
+    private String type;
+
+    @Getter
+    @Setter
     private String latitude;
 
     @Getter
     @Setter
     private String longitude;
+
+    @Getter
+    @Setter
+    private City[] cities;
+
+
 }

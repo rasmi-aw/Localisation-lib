@@ -1,4 +1,4 @@
-package model.complex_fields;
+package com.blacksoft.localisation.model.complex_fields;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

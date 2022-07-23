@@ -1,4 +1,4 @@
-package model;
+package com.blacksoft.localisation.model.complex_fields;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,38 +8,30 @@ import lombok.Setter;
 /**
  * @author AbdelWadoud Rasmi
  * <p>
+ * time zone definition
  */
 @AllArgsConstructor
 @NoArgsConstructor
-public class State {
+public class TimeZone {
 
     @Getter
     @Setter
-    private Long id;
+    private String zoneName;
 
     @Getter
     @Setter
-    private String name;
+    private Integer gmtOffset;
 
     @Getter
     @Setter
-    private String state_code;
+    private String gmtOffsetName;
 
     @Getter
     @Setter
-    private String type;
+    private String abbreviation;
 
     @Getter
     @Setter
-    private String latitude;
-
-    @Getter
-    @Setter
-    private String longitude;
-
-    @Getter
-    @Setter
-    private City[] cities;
-
+    private String tzName;
 
 }

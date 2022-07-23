@@ -1,6 +1,8 @@
+package com.blacksoft.localisation;
+
 import com.google.gson.Gson;
-import model.Country;
-import service.Endpoint;
+import com.blacksoft.localisation.model.Country;
+import com.blacksoft.localisation.service.Endpoint;
 
 import java.io.IOException;
 import java.net.URI;
@@ -15,7 +17,7 @@ import java.util.List;
  * @author AbdelWadoud Rasmi
  */
 public class Localisation {
-    private static final String TAG = "Blacksoft->Localisation";
+    private static final String TAG = "Blacksoft->com.blacksoft.localisation.Localisation";
 
     /**
      * Returns the list of all countries along with their states and cities

@@ -1,12 +1,12 @@
-package model;
+package com.blacksoft.localisation.model;
 
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import model.complex_fields.TimeZone;
-import model.complex_fields.Translations;
+import com.blacksoft.localisation.model.complex_fields.TimeZone;
+import com.blacksoft.localisation.model.complex_fields.Translations;
 
 /**
  * @author AbdelWadoud Rasmi

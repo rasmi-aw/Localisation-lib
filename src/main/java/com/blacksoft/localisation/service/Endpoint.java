@@ -1,4 +1,4 @@
-package service;
+package com.blacksoft.localisation.service;
 
 /**
  * @author AbdelWadoud Rasmi
