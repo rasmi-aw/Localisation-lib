@@ -1,7 +1,0 @@
-model\complex_fields\Translations.class
-model\Country.class
-model\City.class
-Localisation.class
-service\Endpoint.class
-model\State.class
-model\complex_fields\TimeZone.class
