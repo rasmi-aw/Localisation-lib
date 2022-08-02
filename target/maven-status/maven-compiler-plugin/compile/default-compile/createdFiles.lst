@@ -1,7 +1,0 @@
-com\beastwall\localisation\model\complex_fields\Translations.class
-com\beastwall\localisation\Localisation.class
-com\beastwall\localisation\model\complex_fields\TimeZone.class
-com\beastwall\localisation\model\Country.class
-com\beastwall\localisation\model\State.class
-com\beastwall\localisation\service\Endpoint.class
-com\beastwall\localisation\model\City.class

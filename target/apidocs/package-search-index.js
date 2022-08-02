@@ -1,1 +1,0 @@
-packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"l":"com.beastwall.localisation"},{"l":"com.beastwall.localisation.model"},{"l":"com.beastwall.localisation.model.complex_fields"},{"l":"com.beastwall.localisation.service"}]
