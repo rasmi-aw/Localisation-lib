@@ -17,20 +17,25 @@ import java.util.List;
  * @author AbdelWadoud Rasmi
  */
 public class Localisation {
-    private static final String TAG = "Blacksoft->com.blacksoft.localisation.Localisation";
+    private static final String TAG = "com.beastwall.localisation.Localisation";
 
     /**
      * Returns the list of all countries along with their states and cities
      */
-    public static List<Country> getAllCountriesStatesAndCities() throws Exception {
+    public static List<Country> getAllCountriesStatesAndCities() {
         //
-        String json = getJson(Endpoint.COUNTRY_CITY_STATE);
-        if (json == null)
-            throw new Exception("Couldn't Fetch data, check your internet connection.");
-        //
-        Gson gson = new Gson();
-        Country[] countries = gson.fromJson(json, Country[].class);
-        return Arrays.asList(countries);
+        try {
+            String json = getJson(Endpoint.COUNTRY_CITY_STATE);
+            if (json == null)
+                throw new Exception("Couldn't Fetch data, check your internet connection.");
+            //
+            Gson gson = new Gson();
+            Country[] countries = gson.fromJson(json, Country[].class);
+            return Arrays.asList(countries);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 
@@ -46,7 +51,7 @@ public class Localisation {
                 .build();
         HttpClient client = HttpClient.newHttpClient();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-
+        //
         return response.body();
     }
 
