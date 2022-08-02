@@ -1,12 +1,12 @@
-package com.blacksoft.localisation.model;
+package com.beastwall.localisation.model;
 
+import com.beastwall.localisation.model.complex_fields.TimeZone;
+import com.beastwall.localisation.model.complex_fields.Translations;
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import com.blacksoft.localisation.model.complex_fields.TimeZone;
-import com.blacksoft.localisation.model.complex_fields.Translations;
 
 /**
  * @author AbdelWadoud Rasmi

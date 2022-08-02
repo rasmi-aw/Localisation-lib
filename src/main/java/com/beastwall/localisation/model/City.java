@@ -1,4 +1,4 @@
-package com.blacksoft.localisation.model;
+package com.beastwall.localisation.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

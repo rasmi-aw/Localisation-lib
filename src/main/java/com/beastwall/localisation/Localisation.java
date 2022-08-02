@@ -1,7 +1,7 @@
-package com.blacksoft.localisation;
+package com.beastwall.localisation;
 
-import com.blacksoft.localisation.model.Country;
-import com.blacksoft.localisation.service.Endpoint;
+import com.beastwall.localisation.model.Country;
+import com.beastwall.localisation.service.Endpoint;
 import com.google.gson.Gson;
 
 import java.io.IOException;

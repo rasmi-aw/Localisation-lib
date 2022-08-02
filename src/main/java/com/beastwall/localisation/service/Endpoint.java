@@ -1,4 +1,4 @@
-package com.blacksoft.localisation.service;
+package com.beastwall.localisation.service;
 
 /**
  * @author AbdelWadoud Rasmi
