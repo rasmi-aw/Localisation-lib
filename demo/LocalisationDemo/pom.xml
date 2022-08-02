@@ -13,4 +13,11 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.beastwall</groupId>
+            <artifactId>localisation</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+    </dependencies>
 </project>
