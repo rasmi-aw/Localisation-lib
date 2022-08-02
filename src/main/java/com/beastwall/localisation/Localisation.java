@@ -4,9 +4,7 @@ import com.beastwall.localisation.model.Country;
 import com.beastwall.localisation.service.Endpoint;
 import com.google.gson.Gson;
 
-import java.io.IOException;
 import java.net.URI;
-import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
@@ -42,7 +40,7 @@ public class Localisation {
     /**
      * Excecutes an http request
      */
-    private static final String getJson(String url) throws URISyntaxException, IOException, InterruptedException {
+    private static final String getJson(String url) throws Exception {
         //
         HttpRequest request = HttpRequest
                 .newBuilder()
