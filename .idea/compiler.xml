@@ -7,7 +7,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="demo" />
+        <module name="LocalisationDemo" />
       </profile>
       <profile name="Annotation profile for localisation" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -19,5 +19,8 @@
         <module name="Localisation" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="demo" target="11" />
+    </bytecodeTargetLevel>
   </component>
 </project>
