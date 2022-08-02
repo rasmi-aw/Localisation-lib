@@ -1,8 +1,8 @@
 package com.blacksoft.localisation;
 
-import com.google.gson.Gson;
 import com.blacksoft.localisation.model.Country;
 import com.blacksoft.localisation.service.Endpoint;
+import com.google.gson.Gson;
 
 import java.io.IOException;
 import java.net.URI;
