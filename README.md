@@ -1,4 +1,4 @@
-# Localisation-lib
+# Localisation
 Localisation is an open source java Library, it's used to add localisation layer to your java apps, till now it contains, Countries,States and cities, later we will add languages separately.  
 
 **Note**: This library executes an **http request** to fetch the needed data.
@@ -86,5 +86,6 @@ useLibrary 'org.apache.http.legacy'
 
 for more information check this response:  
 https://stackoverflow.com/questions/49644066/what-are-the-implications-of-the-removal-of-httpclient-in-android-m
+
 
 
