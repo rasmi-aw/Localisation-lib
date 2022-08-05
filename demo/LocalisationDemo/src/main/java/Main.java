@@ -5,6 +5,9 @@ import com.beastwall.localisation.model.State;
 
 import java.util.List;
 
+/**
+ * @author AbdelWadoud Rasmi
+ */
 public class Main {
     public static void main(String[] args) {
 
@@ -22,7 +25,7 @@ public class Main {
             }
         }
 
-        //
+        //Get country Svg
         byte[] dz = Localisation.getCountryFlagSVG("dz");
     }
 }
