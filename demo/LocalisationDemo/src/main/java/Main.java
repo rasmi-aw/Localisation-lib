@@ -25,7 +25,7 @@ public class Main {
             }
         }
 
-        //Get country Svg
+        //Get country Svg flag
         byte[] dz = Localisation.getCountryFlagSVG("dz");
     }
 }
