@@ -1,3 +1,10 @@
+
+Contact: abdelouadoudrasmi@gmail.com
+Linkedin: https://www.linkedin.com/in/abdel-wadoud/
+
+The documentation can be found here:
+https://github.com/rasmi-aw/Localisation-lib/wiki
+
 # Localisation
 Localisation is an open source java Library, it's used to add localisation layer to your java apps, till now it contains, Countries,States and cities, later we will add languages separately.  
 
