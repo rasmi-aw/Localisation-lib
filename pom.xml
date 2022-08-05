@@ -6,7 +6,7 @@
 
     <groupId>com.beastwall</groupId>
     <artifactId>localisation</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <name>localisation</name>
     <description>An open source library to add localisation to your apps (Web, Mobile and Desktop),
     The goal of this library is to help you add all countries, states and cities to your apps,
