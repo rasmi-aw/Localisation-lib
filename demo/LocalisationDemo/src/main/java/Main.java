@@ -2,6 +2,7 @@ import com.beastwall.localisation.Localisation;
 import com.beastwall.localisation.model.City;
 import com.beastwall.localisation.model.Country;
 import com.beastwall.localisation.model.State;
+import com.beastwall.localisation.model.complex_fields.Form;
 
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class Main {
         // Fetch all countries using httpclient
         List<Country> countries = Localisation.getAllCountriesStatesAndCities();
 
+
         //Get states for country
         if (countries != null && !countries.isEmpty()) {
             State[] states = countries.get(0).getStates();
@@ -25,7 +27,13 @@ public class Main {
             }
         }
 
-        //Get country Svg flag
-        byte[] dz = Localisation.getCountryFlagSVG("dz");
+        //Get countries Svg flag
+        for (Country c : countries) {
+            byte[] countryFlag = Localisation.getCountryFlagSVG(c.getIso2(), Form.SQUARE);
+            //Do something
+        }
+
+        //Get Algeria's flag with code "dz"
+        byte[] dz = Localisation.getCountryFlagSVG("dz", Form.RECTANGLE);
     }
 }

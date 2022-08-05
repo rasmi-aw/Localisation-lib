@@ -1,6 +1,7 @@
 package com.beastwall.localisation;
 
 import com.beastwall.localisation.model.Country;
+import com.beastwall.localisation.model.complex_fields.Form;
 import com.beastwall.localisation.service.Endpoint;
 import com.google.gson.Gson;
 
@@ -41,18 +42,18 @@ public class Localisation {
      * Return country flag in svg format
      *
      * @param code: country code
+     * @param form: whether a rectangle or a Square see enum {@link Form}
      */
-    public static byte[] getCountryFlagSVG(String code) {
+    public static byte[] getCountryFlagSVG(String code, Form form) {
         //
         try {
             String codeC = code.trim().toLowerCase();
-            return getFile(Endpoint.COUNTRY_FLAG.replace("dz", codeC));
+            return getFile(form.toString().replace("dz", codeC));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
-
 
     /**
      * Excecutes an http request
