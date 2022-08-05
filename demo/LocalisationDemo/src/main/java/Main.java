@@ -30,7 +30,7 @@ public class Main {
         //Get countries Svg flag
         for (Country c : countries) {
             byte[] countryFlag = Localisation.getCountryFlagSVG(c.getIso2(), Form.SQUARE);
-            //Do something
+            //Do something like saving the file
         }
 
         //Get Algeria's flag with code "dz"
