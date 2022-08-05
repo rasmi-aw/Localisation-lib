@@ -21,5 +21,8 @@ public class Main {
                 City city = state.getCities()[0];
             }
         }
+
+        //
+        byte[] dz = Localisation.getCountryFlagSVG("dz");
     }
 }

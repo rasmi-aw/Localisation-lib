@@ -38,6 +38,23 @@ public class Localisation {
 
 
     /**
+     * Return country flag in svg format
+     *
+     * @param code: country code
+     */
+    public static byte[] getCountryFlagSVG(String code) {
+        //
+        try {
+            String codeC = code.trim().toLowerCase();
+            return getFile(Endpoint.COUNTRY_FLAG.replace("dz", codeC));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+
+    /**
      * Excecutes an http request
      */
     private static final String getJson(String url) throws Exception {
@@ -49,6 +66,22 @@ public class Localisation {
                 .build();
         HttpClient client = HttpClient.newHttpClient();
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        //
+        return response.body();
+    }
+
+    /**
+     * Excecutes an http request to read a file
+     */
+    private static final byte[] getFile(String url) throws Exception {
+        //
+        HttpRequest request = HttpRequest
+                .newBuilder()
+                .uri(new URI(url))
+                .GET()
+                .build();
+        HttpClient client = HttpClient.newHttpClient();
+        HttpResponse<byte[]> response = client.send(request, HttpResponse.BodyHandlers.ofByteArray());
         //
         return response.body();
     }
