@@ -1,8 +1,13 @@
 package com.beastwall.localisationdemoapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 
 
@@ -25,17 +30,23 @@ import java.util.stream.Stream;
  * @author AbdelWadoud Rasmi
  */
 public class MainActivity extends AppCompatActivity {
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        recyclerView = findViewById(R.id.countries_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         //
         new Thread(() -> {
-            byte[] dz = Localisation.getCountryFlagSVG("DZ", Form.SQUARE);
             List<Country> countries = Localisation.getAllCountriesStatesAndCities();
-            Log.v("rasmi", "" + countries.size());
+            new Handler(Looper.getMainLooper()).post(new Runnable() {
+                @Override
+                public void run() {
+                    recyclerView.setAdapter(new CountriesAdapter(countries));
+                }
+            });
         }).start();
 
     }
