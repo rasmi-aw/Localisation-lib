@@ -99,10 +99,33 @@ public class Localisation {
         HttpURLConnection urlConnection = ((HttpURLConnection) new URL(url).openConnection());
         //
         DataInputStream inputStream = new DataInputStream(urlConnection.getInputStream());
-        byte[] bytes = new byte[urlConnection.getContentLength()];
-        int size;
-        int level = 0;
-        inputStream.readFully(bytes);
+        int fileSize = urlConnection.getContentLength();
+        byte[] bytes;
+        if (fileSize > 0) {
+            bytes = new byte[fileSize];
+            inputStream.readFully(bytes);
+        } else {
+            // for android since getContentLength() returns -1
+            ArrayList<byte[]> allBytes = new ArrayList<>();
+            bytes = new byte[32 * 1024];
+            int size = 0;
+            int totalSize = 0;
+            while ((size = inputStream.read(bytes)) > 0) {
+                byte[] read = Arrays.copyOf(bytes, size);
+                totalSize += size;
+                allBytes.add(read);
+            }
+            //
+            bytes = new byte[totalSize];
+            totalSize = 0;
+            for (int i = 0; i < allBytes.size(); i++) {
+                byte[] read = allBytes.get(i);
+                int length = read.length;
+                System.arraycopy(read, 0, bytes, totalSize, length);
+                totalSize += length;
+            }
+        }
+        //
         inputStream.close();
         inputStream = null;
         urlConnection = null;
