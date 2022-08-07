@@ -19,21 +19,21 @@ This library can be used in many different ways, all versions are published on M
  <dependency>
    <groupId>com.beastwall</groupId>
    <artifactId>localisation</artifactId>
-   <version>1.0.2</version>
+   <version>1.0.4</version>
  </dependency> 
 ```
 
 ## 1.2 Gradle   
 ```gradle 
-implementation 'com.beastwall:localisation:1.0.2'
+implementation 'com.beastwall:localisation:1.0.4'
 ```
 
 ## 1.3 Other methods   
 For other usages (gradle kotlin, scala etc...), see the link below  
-https://search.maven.org/artifact/com.beastwall/localisation/1.0.2/jar
+https://search.maven.org/artifact/com.beastwall/localisation/1.0.4/jar
 
 # 2- How to use it ?
-Till now, the only way to use this library is as follows:
+The library has one methods holder which is **Localisation** class, in contains some static methods to fetch your needed data, and it should be used as follows:
 
 
 ## 2.1 Getting countries
@@ -47,20 +47,18 @@ Till now, the only way to use this library is as follows:
 
 You might want to get states for a specific Country:
 ```java
- //Get states for country
- if (countries != null && !countries.isEmpty()) {
-     State[] states = countries.get(0).getStates();
-     State state = states[0];
- }
+//Get states for country
+List<State> states = country.getStates();
 
 ```
 ## 2.3 Getting cities
 You might want to get cities for a specific state:
 ```java
 //Get cities for a state
- if (state != null) {
-     City city = state.getCities()[0];
- }
+for (State state : states) {
+    //Get cities for a state
+    List<City> cities = state.getCities();
+}
 
 ```
 
@@ -83,23 +81,39 @@ byte[] dz = Localisation.getCountryFlagSVG("dz", Form.RECTANGLE);
 https://github.com/rasmi-aw/StorageManager
 
 ```java
-//Get cities for a state
+//Save Svg flag (byte array) into a file and get its path
 String filePath = FileSaver.get().save(dz,"dz.svg");
 
 ```
-
-
-# 3- Android
-As you all know, Google has removed HttpClient java class from Android Sdk, and since this library uses **HttpClient**, there's a solution which is telling the system that we still want to use HttpClient, by adding the next line in your gradle file.
-
-**Note**: don't forget to add Network permission in your Manifest.xml
-
-```groovy
-android {
-useLibrary 'org.apache.http.legacy'
-}     
+## 2.5 Get countries Only
+```java
+//Get Countries Only
+you might want to get countries without states and cities as follows
+List<Country> countriesList = Localisation.getCountriesList();
 ```
 
-for more information check this response:  
-https://stackoverflow.com/questions/49644066/what-are-the-implications-of-the-removal-of-httpclient-in-android-m
+## 2.6 Full example
 
+```java
+// Fetch all countries with an Http call
+List<Country> countries = Localisation.getAllCountriesStatesAndCities();
+
+for (Country country : countries) {
+    //Get countries Svg flag
+    byte[] countryFlag = Localisation.getCountryFlagSVG(country.getIso2(), Form.SQUARE);
+
+    //Get states for country
+    List<State> states = country.getStates();
+
+    for (State state : states) {
+        //Get cities for a state
+        List<City> cities = state.getCities();
+    }
+}
+```
+
+# 3- Demo(s)
+Find Our Java demo here:  
+https://github.com/rasmi-aw/Localisation-lib/tree/master/demo/LocalisationDemo
+
+Android demo here:  
