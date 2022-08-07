@@ -13,12 +13,15 @@
         <maven.compiler.target>11</maven.compiler.target>
     </properties>
 
+    <!--Localisation library-->
     <dependencies>
         <dependency>
             <groupId>com.beastwall</groupId>
             <artifactId>localisation</artifactId>
-            <version>1.0.4</version>
+            <version>1.0.5</version>
         </dependency>
+
+        <!--Gson to parse Json responses-->
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
