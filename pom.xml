@@ -34,12 +34,11 @@
             <scope>provided</scope>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>com.google.code.gson</groupId>-->
-<!--            <artifactId>gson</artifactId>-->
-<!--            <version>2.9.0</version>-->
-<!--        </dependency>-->
-
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.9.1</version>
+        </dependency>
 
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>
@@ -50,13 +49,6 @@
         </dependency>
 
 
-        <dependency>
-            <groupId>com.google.code.gson</groupId>
-            <artifactId>gson</artifactId>
-            <version>2.9.0</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/src/main/resources/gson-2.9.0.jar</systemPath>
-        </dependency>
     </dependencies>
 
 
