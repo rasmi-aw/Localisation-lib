@@ -5,10 +5,11 @@ import com.beastwall.localisation.model.complex_fields.Form;
 import com.beastwall.localisation.service.Endpoint;
 import com.google.gson.Gson;
 
-import java.net.URI;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -30,11 +31,32 @@ public class Localisation {
             //
             Gson gson = new Gson();
             Country[] countries = gson.fromJson(json, Country[].class);
-            return Arrays.asList(countries);
+            if (countries != null)
+                return Arrays.asList(countries);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return null;
+        return new ArrayList<>();
+    }
+
+    /**
+     * Returns the list of all countries without their states and cities
+     */
+    public static List<Country> getCountriesList() {
+        //
+        try {
+            String json = getJson(Endpoint.COUNTRY);
+            if (json == null)
+                throw new Exception("Couldn't Fetch data, check your internet connection.");
+            //
+            Gson gson = new Gson();
+            Country[] countries = gson.fromJson(json, Country[].class);
+            if (countries != null)
+                return Arrays.asList(countries);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new ArrayList<>();
     }
 
 
@@ -60,15 +82,7 @@ public class Localisation {
      */
     private static final String getJson(String url) throws Exception {
         //
-        HttpRequest request = HttpRequest
-                .newBuilder()
-                .uri(new URI(url))
-                .GET()
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
-        //
-        return response.body();
+        return new String(getFile(url), StandardCharsets.UTF_8);
     }
 
     /**
@@ -76,15 +90,14 @@ public class Localisation {
      */
     private static final byte[] getFile(String url) throws Exception {
         //
-        HttpRequest request = HttpRequest
-                .newBuilder()
-                .uri(new URI(url))
-                .GET()
-                .build();
-        HttpClient client = HttpClient.newHttpClient();
-        HttpResponse<byte[]> response = client.send(request, HttpResponse.BodyHandlers.ofByteArray());
+        HttpURLConnection urlConnection = ((HttpURLConnection) new URL(url).openConnection());
         //
-        return response.body();
+        InputStream inputStream = urlConnection.getInputStream();
+        byte[] bytes = inputStream.readAllBytes();
+        inputStream.close();
+        inputStream = null;
+        urlConnection = null;
+        return bytes;
     }
 
 }

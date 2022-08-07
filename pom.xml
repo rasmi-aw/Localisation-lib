@@ -6,11 +6,12 @@
 
     <groupId>com.beastwall</groupId>
     <artifactId>localisation</artifactId>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <name>localisation</name>
     <description>An open source library to add localisation to your apps (Web, Mobile and Desktop),
-    The goal of this library is to help you add all countries, states and cities to your apps,
-        without interacting with any Json or Xml document, it peforms an http request and returns,
+        The goal of this library is to help you add all countries, states and cities to your apps,
+        without interacting with any Json or Xml document,in addition to getting
+        countries flags in svg, it performs an http request and returns parsed
         Objects.
     </description>
     <packaging>jar</packaging>
@@ -38,6 +39,7 @@
             <artifactId>gson</artifactId>
             <version>2.9.0</version>
         </dependency>
+
 
         <dependency>
             <groupId>org.apache.maven.plugins</groupId>

@@ -5,6 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author AbdelWadoud Rasmi
  * <p>
@@ -37,9 +40,12 @@ public class State {
     @Setter
     private String longitude;
 
-    @Getter
     @Setter
-    private City[] cities;
+    private List<City> cities;
 
-
+    public List<City> getCities() {
+        if(cities == null)
+            cities = new ArrayList<>();
+        return cities;
+    }
 }

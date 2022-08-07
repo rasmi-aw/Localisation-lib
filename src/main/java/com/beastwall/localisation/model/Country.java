@@ -2,11 +2,15 @@ package com.beastwall.localisation.model;
 
 import com.beastwall.localisation.model.complex_fields.TimeZone;
 import com.beastwall.localisation.model.complex_fields.Translations;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author AbdelWadoud Rasmi
@@ -96,9 +100,12 @@ public class Country {
     @Setter
     private String emojiU;
 
-    @Getter
     @Setter
-    private State[] states;
+    private List<State> states;
 
-
+    public List<State> getStates() {
+        if (states == null)
+            states = new ArrayList<>();
+        return states;
+    }
 }

@@ -11,23 +11,27 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-
         // Fetch all countries using httpclient
         List<Country> countries = Localisation.getAllCountriesStatesAndCities();
 
+        for (Country country : countries) {
+            //Get countries Svg flag
+            byte[] countryFlag = Localisation.getCountryFlagSVG(country.getIso2(), Form.SQUARE);
 
-        //Get states for country
-        if (countries != null && !countries.isEmpty()) {
-            State[] states = countries.get(0).getStates();
-            State state = states[0];
+            //Get states for country
+            List<State> states = country.getStates();
 
-            //Get cities for a state
-            if (state != null) {
-                City city = state.getCities()[0];
+            for (State state : states) {
+                //Get cities for a state
+                List<City> cities = state.getCities();
             }
         }
 
+        //Get Countries Only
+        List<Country> countriesList = Localisation.getCountriesList();
+
         //Get countries Svg flag
+        int i = 0;
         for (Country c : countries) {
             byte[] countryFlag = Localisation.getCountryFlagSVG(c.getIso2(), Form.SQUARE);
             //Do something like saving the file
@@ -36,4 +40,6 @@ public class Main {
         //Get Algeria's flag with code "dz"
         byte[] dz = Localisation.getCountryFlagSVG("dz", Form.RECTANGLE);
     }
+
+
 }
