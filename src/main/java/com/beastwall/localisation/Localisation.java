@@ -4,14 +4,20 @@ import com.beastwall.localisation.model.Country;
 import com.beastwall.localisation.model.complex_fields.Form;
 import com.beastwall.localisation.service.Endpoint;
 import com.google.gson.Gson;
+import com.google.inject.internal.util.Lists;
 
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.DataInputStream;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
 
 /**
  * @author AbdelWadoud Rasmi
@@ -92,8 +98,11 @@ public class Localisation {
         //
         HttpURLConnection urlConnection = ((HttpURLConnection) new URL(url).openConnection());
         //
-        InputStream inputStream = urlConnection.getInputStream();
-        byte[] bytes = inputStream.readAllBytes();
+        DataInputStream inputStream = new DataInputStream(urlConnection.getInputStream());
+        byte[] bytes = new byte[urlConnection.getContentLength()];
+        int size;
+        int level = 0;
+        inputStream.readFully(bytes);
         inputStream.close();
         inputStream = null;
         urlConnection = null;
