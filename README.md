@@ -42,7 +42,7 @@ https://search.maven.org/artifact/com.beastwall/localisation/1.0.5/jar
 https://search.maven.org/artifact/com.google.code.gson/gson/2.9.1/jar
 
 # 2- How to use it ?
-The library has one methods holder which is **Localisation** class, in contains some static methods to fetch your needed data, and it should be used as follows:
+The library has one method holder which is **Localisation** class, in contains some static methods to fetch your needed data, and it should be used as follows:
 
 
 ## 2.1 Getting countries
@@ -72,7 +72,7 @@ for (State state : states) {
 ```
 
 ## 2.4 Getting country flag
-In some cases you might want to display a specific country flag, and **getCountryFlagSVG(...)** method returns a byte array of a flag than can be saved as an SVG file, since it was an svg file before fetching it.
+In some cases you might want to display a specific country flag, and **getCountryFlagSVG(...)** method returns a byte array of a flag that can be saved as an SVG file, since it was an svg file before fetching it.
 
 To get a country flag, all you need to do is to specify it's code for examle **Algeria** => **dz**, and the format of the flag, whether it's a **RECTANGLE**, or a **SQUARE**.
 
@@ -126,6 +126,11 @@ Find Our Java demo here:
 https://github.com/rasmi-aw/Localisation-lib/tree/master/demo/LocalisationDemo
 
 Android demo here:  
-https://github.com/rasmi-aw/Localisation-lib/tree/master/demo/LocalisationDemoApp
+https://github.com/rasmi-aw/Localisation-lib/tree/master/demo/LocalisationDemoApp  
+<pre>
 
 
+</pre>
+<p align="center">
+<img src="https://raw.githubusercontent.com/rasmi-aw/Localisation-lib/master/demo/LocalisationDemoApp/screenshot.png" width="250">
+ </p>
