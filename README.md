@@ -36,6 +36,20 @@ implementation 'com.beastwall:localisation:1.0.5'
 implementation 'com.google.code.gson:gson:2.9.1'
 ```
 
+### 1.2.1 Android internet permission   
+For Android users to use this library you have to include these 2 permission in your Manifest file
+
+```xml
+<!--Internet permissions for the library to fetch countries-->
+
+</manifest>
+  ...
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+  ...
+</manifest>
+```
+
 ## 1.3 Other methods   
 For other usages (gradle kotlin, scala etc...), see the link below  
 https://search.maven.org/artifact/com.beastwall/localisation/1.0.5/jar
@@ -44,6 +58,9 @@ https://search.maven.org/artifact/com.google.code.gson/gson/2.9.1/jar
 # 2- How to use it ?
 The library has one method holder which is **Localisation** class, in contains some static methods to fetch your needed data, and it should be used as follows:
 
+## 2.0 Android Note:  
+For android apps (**getAllCountriesStatesAndCities**, **getCountryFlagSVG**) methods have to be called in a separate thread than the main thread, since we're not allowed to execute Network calls in app main thread you can check that in this demo app MainActivity.java class, from here:  
+[Android usage example](https://github.com/rasmi-aw/Localisation-lib/blob/master/demo/LocalisationDemoApp/app/src/main/java/com/beastwall/localisationdemoapp/MainActivity.java)
 
 ## 2.1 Getting countries
 ```java
