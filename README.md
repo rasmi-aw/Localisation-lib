@@ -42,7 +42,7 @@ For Android users to use this library you have to include these 2 permission in 
 ```xml
 <!--Internet permissions for the library to fetch countries-->
 
-</manifest>
+<manifest>
   ...
   <uses-permission android:name="android.permission.INTERNET" />
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
